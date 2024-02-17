@@ -1,14 +1,10 @@
-.campo-text {
-    margin: 1.5rem 0;
-}
-
-.campo-text label {
+.lisa-suspensa label {
     display: block;
     margin-bottom: 8px;
     font-size: 1.5rem;
 }
 
-.campo-text input {
+.lisa-suspensa select {
     border: none;
     width: 100%;
     background-color: #fff;
