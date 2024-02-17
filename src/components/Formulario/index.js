@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import Botao from '../Botao';
 import CampoText from '../CampoText';
 import ListaSuspensa from '../ListaSuspensa';
 import "./Formulario.css"
 
-const Formulario = () => {
+const Formulario = (props) => {
     const equipes = [
         "Mercedes",
         "Alpine",
@@ -24,19 +25,55 @@ const Formulario = () => {
         'Chefe de Equipe'
     ]
 
+    const [nome, setNome] = useState();
+    const [posicao, setPosicao] = useState();
+    const [foto, setFoto] = useState();
+    const [equipe, setEquipe] = useState();
+
     const aoSalvar = (event) => {
         event.preventDefault()
-        console.log('Formulario enviado')
+        props.aoMembroCadastrado({
+            nome,
+            posicao,
+            foto,
+            equipe
+        })
     }
 
     return (
         <section className="formulario">
             <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do membros:</h2>
-                <CampoText obrigatorio={true} tipo='text' label='Nome' placeholder="Digite o nome do membro da equipe..." />
-                <ListaSuspensa obrigatorio={true} label='Posição na Equipe' itens={posicaoNaEquipe} />
-                <CampoText tipo='link' label='Foto' placeholder="Informe o endereço da imagem..." />
-                <ListaSuspensa obrigatorio={true} label='Equipes' itens={equipes} />
+                <CampoText
+                    obrigatorio={true}
+                    label='Nome' tipo='text'
+                    placeholder="Digite o nome do membro da equipe..."
+                    valor={nome}
+                    aoAlterado={setNome}
+                />
+
+                <ListaSuspensa
+                    obrigatorio={true}
+                    label='Posição na Equipe'
+                    itens={posicaoNaEquipe}
+                    valor={posicao}
+                    aoAlterado={valor => setPosicao(valor)}
+                />
+
+                <CampoText
+                    tipo='link' label='Foto'
+                    placeholder="Informe o endereço da imagem..."
+                    valor={foto}
+                    aoAlterado={setFoto}
+                />
+
+                <ListaSuspensa
+                    obrigatorio={true} label='Equipe'
+                    itens={equipes}
+                    valor={equipe}
+                    aoAlterado={valor => setEquipe(valor)}
+                />
+
                 <Botao>Criar Card</Botao>
             </form>
         </section>
