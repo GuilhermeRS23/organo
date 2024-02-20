@@ -58,7 +58,7 @@ const equipes = [
   return (
     <div className="App">
       <Banner />
-      <Formulario aoMembroCadastrado={membro => aoNovoMembroAdd(membro)} />
+      <Formulario nomeDasEquipes={equipes.map(equipe => equipe.nome)} aoMembroCadastrado={membro => aoNovoMembroAdd(membro)} />
       {equipes.map(equipe => <Equipe key={equipe.nome} nome={equipe.nome} corFundo={equipe.corFundo} corPrimaria={equipe.corPrimaria}/>)}
 
     </div>

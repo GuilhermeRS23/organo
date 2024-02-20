@@ -5,18 +5,6 @@ import ListaSuspensa from '../ListaSuspensa';
 import "./Formulario.css"
 
 const Formulario = (props) => {
-    const equipes = [
-        "Mercedes",
-        "Alpine",
-        "Hass F1 Team",
-        "Red Bull Racing",
-        "McLaren",
-        "Aston Martin",
-        "RB",
-        "Ferrari",
-        "Kick Sauber",
-        "Williams"
-    ]
 
     const posicaoNaEquipe = [
         'Piloto N° 1',
@@ -69,7 +57,7 @@ const Formulario = (props) => {
 
                 <ListaSuspensa
                     obrigatorio={true} label='Equipe'
-                    itens={equipes}
+                    itens={props.nomeDasEquipes}
                     valor={equipe}
                     aoAlterado={valor => setEquipe(valor)}
                 />
