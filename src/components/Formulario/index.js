@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Botao from '../Botao';
 import CampoText from '../CampoText';
 import ListaSuspensa from '../ListaSuspensa';
@@ -13,19 +13,16 @@ const Formulario = (props) => {
         'Chefe de Equipe'
     ]
 
-    const [nome, setNome] = useState();
-    const [posicao, setPosicao] = useState();
-    const [foto, setFoto] = useState();
-    const [equipe, setEquipe] = useState();
+    const [nome, setNome] = useState("");
+    const [posicao, setPosicao] = useState("");
+    const [foto, setFoto] = useState("");
+    const [equipe, setEquipe] = useState("");
+
+    
 
     const aoSalvar = (event) => {
         event.preventDefault()
-        props.aoMembroCadastrado({
-            nome,
-            posicao,
-            foto,
-            equipe
-        })
+        props.aoMembroCadastrado({nome,posicao,foto,equipe})
         
         setNome('')
         setPosicao('')

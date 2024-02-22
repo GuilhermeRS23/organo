@@ -1,9 +1,9 @@
 import "./Membro.css";
 //USANDO PROPS COM OBJETO
-const Membro = ({nome, foto, posicao}) => {
+const Membro = ({nome, foto, posicao, corDeFundo}) => {
   return (
     <div className="membro">
-      <div className="cabecalho">
+      <div className="cabecalho" style={{backgroundColor:corDeFundo}}>
         <img src={foto} alt={nome} />
       </div>
       <div className="rodape">

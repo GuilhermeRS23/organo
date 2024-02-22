@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Banner from "./components/Banner";
 import Formulario from "./components/Formulario";
 import Equipe from "./components/Equipe";
@@ -18,10 +18,16 @@ function App() {
     { nome: "William", corFundo: "#64C4FF10", corPrimaria: "#64C4FF" },
   ];
 
-  const [membros, setMembros] = useState([]);
+  //USANDO LOCALSTORE PARA MANTER OS DADOS
+  const [membros, setMembros] = useState(
+    JSON.parse(localStorage.getItem('listaEquipes')) || []);
+
+  useEffect(() => {
+      localStorage.setItem('listaEquipes', JSON.stringify(membros));
+  }, [membros]);
+
   const aoNovoMembroAdd = (membro) => {
-    console.log(membro);
-    setMembros([...membros, membro]);
+    setMembros([...membros, membro])
   };
 
   return (

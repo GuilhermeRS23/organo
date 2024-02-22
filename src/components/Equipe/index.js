@@ -14,8 +14,11 @@ const Equipe = (props) => {
         <div className="membros">
         {props.membros.map(membro => 
         <Membro  nome={membro.nome}
+        corDeFundo={props.corPrimaria}
+        key={membro.nome}
         posicao={membro.posicao}
-        foto={membro.foto} />)}
+        foto={membro.foto}
+        />)}
         </div>
         
     </section>

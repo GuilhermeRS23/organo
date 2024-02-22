@@ -3,12 +3,12 @@
 }
 
 .membro .cabecalho {
-    background-color:  #F0F0F0;
     border-top-right-radius: 10px;
     border-right:5px solid;
     border-top: 3px solid;
 }
 .membro img {
+    height: 100px;
     width: 100px;
     border-radius: 50%;
     position: relative;
@@ -38,9 +38,9 @@
     padding: 0 16px;
 }
 
-.membro:hover {
+/* .membro:hover {
     .cabecalho,
     .rodape{
         border-color: aqua;
     }
-}
+} */
