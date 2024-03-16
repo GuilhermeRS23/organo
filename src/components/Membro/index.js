@@ -1,8 +1,10 @@
+import { GrFormClose } from "react-icons/gr";
 import "./Membro.css";
 //USANDO PROPS COM OBJETO
-const Membro = ({nome, foto, posicao, corDeFundo}) => {
+const Membro = ({nome, foto, posicao, corDeFundo, aoDeletar}) => {
   return (
     <div className="membro">
+      <GrFormClose size={25} className="excluir-membro" onClick={aoDeletar}/>
       <div className="cabecalho" style={{backgroundColor:corDeFundo}}>
         <img src={foto} alt={nome} />
       </div>

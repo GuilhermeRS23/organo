@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import Banner from "./components/Banner";
 import Formulario from "./components/Formulario";
@@ -30,6 +31,10 @@ function App() {
     setMembros([...membros, membro])
   };
 
+  const deletarMembro = () => {
+    console.log('Excluindo Membro...');
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -44,7 +49,8 @@ function App() {
           corFundo={equipe.corFundo}
           corPrimaria={equipe.corPrimaria}
           membros={membros.filter((membro) => membro.equipe === equipe.nome)}
-        />
+          aoDeletar={deletarMembro}
+        />   
       ))}
       <Rodape />
     </div>
