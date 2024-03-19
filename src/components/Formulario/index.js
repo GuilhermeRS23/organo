@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Botao from '../Botao';
 import CampoText from '../CampoText';
 import ListaSuspensa from '../ListaSuspensa';
