@@ -1,4 +1,5 @@
 .equipe {
+  position: relative;
   text-align: center;
   padding: 34px;
   border-top: solid 2.5px;
@@ -21,11 +22,11 @@
   flex-wrap: wrap;
 }
 
+.input-color {
+position: absolute;
+top: 5px;
+left: 5px;
+border-style: none; 
+}
+
 /* IMPLEMENTAÇÃO FUTURA (TALVEZ) */
-/* .equipe{
-  background-image: url(https://livesport-ott-images.ssl.cdn.cra.cz/r900xfq60/dc9be4dc-caac-45fb-a4e1-41cb0b3f840c.jpeg);
-  background-position: center;
-  background-size: 50%;
-  background-repeat: no-repeat;
-  opacity: 0.45;
-} */

@@ -1,14 +1,17 @@
 import Membro from "../Membro";
 import "./Equipe.css";
+import hexToRgba from 'hex-to-rgba';
 
-const Equipe = ({ corFundo, corPrimaria, membros, nome, aoDeletar }) => {
-  const cssBackground = { backgroundColor: corFundo, borderColor: corPrimaria };
+const Equipe = ({ corPrimaria, membros, nome, aoDeletar, mudarCor }) => {
+  const cssBackground = { backgroundColor: hexToRgba(corPrimaria, '0.2'), borderColor: corPrimaria };
   return (
     //CONDIÇÃO EM JSX  
     //condição ? valor1 : valor2 
     //condição && valor1 
     (membros.length > 0) &&
     <section className="equipe" style={cssBackground}>
+      <input value={corPrimaria} type="color" className="input-color"
+        onChange={evento => mudarCor(evento.target.value, nome)} />
       <h3 style={{ borderColor: corPrimaria }}>{nome}</h3>
 
       <div className="membros">
@@ -23,7 +26,7 @@ const Equipe = ({ corFundo, corPrimaria, membros, nome, aoDeletar }) => {
             aoDeletar={aoDeletar}
           />
         })}
-        
+
       </div>
     </section>
   )
