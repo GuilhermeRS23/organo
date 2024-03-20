@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Botao from '../Botao';
 import CampoText from '../CampoText';
 import ListaSuspensa from '../ListaSuspensa';
@@ -17,22 +18,23 @@ const Formulario = (props) => {
     const [posicao, setPosicao] = useState("");
     const [foto, setFoto] = useState("");
     const [equipe, setEquipe] = useState("");
+    const [novaEquipe, setNovaEquipe] = useState("");
+    const [novaEquipeCor, setNovaEquipeCor] = useState("");
 
-    
 
-    const aoSalvar = (event) => {
-        event.preventDefault()
-        props.aoMembroCadastrado({nome,posicao,foto,equipe})
-        
-        setNome('')
-        setPosicao('')
-        setFoto('')
-        setEquipe('')
+    function aoSalvar(event) {
+        event.preventDefault();
+        props.aoMembroCadastrado({ nome, posicao, foto, equipe, id: uuidv4() });
+
+        setNome('');
+        setPosicao('');
+        setFoto('');
+        setEquipe('');
     }
 
     return (
-        <section className="formulario">
-            <form onSubmit={aoSalvar}>
+        <section className='formulario-container'>
+            <form className="formulario" onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do membros:</h2>
                 <CampoText
                     obrigatorio={true}
@@ -65,6 +67,30 @@ const Formulario = (props) => {
                 />
 
                 <Botao>Criar Card</Botao>
+            </form>
+
+            <form className='formulario_addEquipe' onSubmit={(evento) => {
+                evento.preventDefault()
+                props.cadastrarEquipe({ nome: novaEquipe, corPrimaria: novaEquipeCor })
+            }}>
+                <h2>Preencha os dados para adicionar uma nova equipe:</h2>
+                <CampoText
+                    obrigatorio
+                    label='Nome' tipo='text'
+                    placeholder="Digite o nome da equipe..."
+                    valor={novaEquipe}
+                    aoAlterado={setNovaEquipe}
+                />
+
+                <CampoText
+                    obrigatorio
+                    tipo='text' label='Cor'
+                    placeholder="Informe a cor da equipe... (#0000)"
+                    valor={novaEquipeCor}
+                    aoAlterado={setNovaEquipeCor}
+                />
+
+                <Botao>Adicionar Equipe</Botao>
             </form>
         </section>
     )
