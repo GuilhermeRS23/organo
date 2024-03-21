@@ -1,7 +1,7 @@
 //import { useState } from "react"
-import "./CampoText.css"
+import "./Campo.css"
 //USANDO OBJETO COMO PARAMETRO
-const CampoText = ({label, valor, tipo, obrigatorio, placeholder, aoAlterado}) => {
+const Campo = ({label, valor, tipo, obrigatorio, placeholder, aoAlterado}) => {
 
     // const [valor, setValor] = useState("");
 
@@ -12,7 +12,7 @@ const CampoText = ({label, valor, tipo, obrigatorio, placeholder, aoAlterado}) =
     }
 
     return (
-        <div className="campo-text">
+        <div className={`campo campo-${tipo}`}>
             <label>{label}</label>
             <input value={valor}
                 onChange={aoDigitado}
@@ -24,4 +24,4 @@ const CampoText = ({label, valor, tipo, obrigatorio, placeholder, aoAlterado}) =
     )
 }
 
-export default CampoText;
+export default Campo;

@@ -97,6 +97,13 @@ function App() {
     setEquipes([...equipes, { ...novaEquipe, id: uuidv4() }])
   };
 
+  const favoritoOuNao = (id) => {
+    setMembros(membros.map(membro => {
+      if (membro.id === id) membro.favorito = !membro.favorito;
+      return membro
+    }))
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -108,6 +115,7 @@ function App() {
       <h1 className="titulo">F1 Drivers 2024</h1>
       {equipes.map((equipe) => (
         <Equipe
+          aoFavoritar={favoritoOuNao}
           mudarCor={mudarCorEquipe}
           id={equipe.id}
           key={equipe.nome}

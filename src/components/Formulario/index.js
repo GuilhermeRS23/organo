@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Botao from '../Botao';
-import CampoText from '../CampoText';
+import Campo from '../Campo';
 import ListaSuspensa from '../ListaSuspensa';
 import "./Formulario.css"
 
@@ -24,7 +24,7 @@ const Formulario = (props) => {
 
     function aoSalvar(event) {
         event.preventDefault();
-        props.aoMembroCadastrado({ nome, posicao, foto, equipe, id: uuidv4() });
+        props.aoMembroCadastrado({ nome, posicao, foto, equipe, id: uuidv4(), favorito:false });
 
         setNome('');
         setPosicao('');
@@ -36,7 +36,7 @@ const Formulario = (props) => {
         <section className='formulario-container'>
             <form className="formulario" onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do membros:</h2>
-                <CampoText
+                <Campo
                     obrigatorio={true}
                     label='Nome' tipo='text'
                     placeholder="Digite o nome do membro da equipe..."
@@ -52,7 +52,7 @@ const Formulario = (props) => {
                     aoAlterado={valor => setPosicao(valor)}
                 />
 
-                <CampoText
+                <Campo
                     tipo='link' label='Foto'
                     placeholder="Informe o endereço da imagem..."
                     valor={foto}
@@ -74,7 +74,7 @@ const Formulario = (props) => {
                 props.cadastrarEquipe({ nome: novaEquipe, corPrimaria: novaEquipeCor })
             }}>
                 <h2>Preencha os dados para adicionar uma nova equipe:</h2>
-                <CampoText
+                <Campo
                     obrigatorio
                     label='Nome' tipo='text'
                     placeholder="Digite o nome da equipe..."
@@ -82,9 +82,9 @@ const Formulario = (props) => {
                     aoAlterado={setNovaEquipe}
                 />
 
-                <CampoText
+                <Campo
                     obrigatorio
-                    tipo='text' label='Cor'
+                    tipo='color' label='Cor'
                     placeholder="Informe a cor da equipe... (#0000)"
                     valor={novaEquipeCor}
                     aoAlterado={setNovaEquipeCor}

@@ -2,7 +2,7 @@ import Membro from "../Membro";
 import "./Equipe.css";
 import hexToRgba from 'hex-to-rgba';
 
-const Equipe = ({id, corPrimaria, membros, nome, aoDeletar, mudarCor }) => {
+const Equipe = ({id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavoritar }) => {
   const cssBackground = { backgroundColor: hexToRgba(corPrimaria, '0.45'), borderColor: corPrimaria };
   return (
     //CONDIÇÃO EM JSX  
@@ -28,6 +28,8 @@ const Equipe = ({id, corPrimaria, membros, nome, aoDeletar, mudarCor }) => {
             posicao={membro.posicao}
             foto={membro.foto}
             aoDeletar={aoDeletar}
+            favorito={membro.favorito}
+            aoFavoritar={aoFavoritar}
           />
         })}
 
