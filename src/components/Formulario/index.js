@@ -93,7 +93,7 @@ const Formulario = (props) => {
                 <Botao>Adicionar Equipe</Botao>
             </form>
         </section>
-    )
+        )
 }
 
 export default Formulario;

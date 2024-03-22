@@ -1,0 +1,20 @@
+.titulo {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    margin: 25px 15px 25px;
+    border-top-right-radius: 25px;
+    padding-top: 20px;
+    padding-right: 20px;
+    border-top: solid 10px #000;
+    border-right: solid 10px #000;
+}
+
+.titulo-h1 {
+    font-family: "Russo One", sans-serif;
+    font-size: 75px;
+}
+
+.icone {
+    cursor: pointer;
+}

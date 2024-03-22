@@ -4,8 +4,9 @@ import Banner from "./components/Banner";
 import Formulario from "./components/Formulario";
 import Equipe from "./components/Equipe";
 import Rodape from "./components/Rodape";
+import Titulo from "./components/Titulo";
 
-function App() {
+const App = () => {
 
   const [equipes, setEquipes] = useState([
     { id: uuidv4(), nome: "Mercedes", corPrimaria: "#27f4d2" },
@@ -19,6 +20,8 @@ function App() {
     { id: uuidv4(), nome: "Kick Sauber", corPrimaria: "#52E252" },
     { id: uuidv4(), nome: "William", corPrimaria: "#64C4FF" },
   ]);
+
+  const [exibirFormulario, setExibirFormulario] = useState(true);
 
   // const MembrosEquipes = [
   //   {
@@ -87,7 +90,6 @@ function App() {
     setEquipes(equipes.map(equipe => {
       if (equipe.id === id) {
         equipe.corPrimaria = cor;
-        console.log(cor, id)
       }
       return equipe;
     }));
@@ -96,6 +98,10 @@ function App() {
   const cadastrarEquipe = (novaEquipe) => {
     setEquipes([...equipes, { ...novaEquipe, id: uuidv4() }])
   };
+
+  const esconderForm = () => {
+    setExibirFormulario((prevState) => prevState ? false : true);
+  }
 
   const favoritoOuNao = (id) => {
     setMembros(membros.map(membro => {
@@ -107,12 +113,18 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Formulario
-        cadastrarEquipe={cadastrarEquipe}
-        nomeDasEquipes={equipes.map((equipe) => equipe.nome)}
-        aoMembroCadastrado={(membro) => aoNovoMembroAdd(membro)}
-      />
-      <h1 className="titulo">F1 Drivers 2024</h1>
+
+      {exibirFormulario && (
+        <Formulario
+          cadastrarEquipe={cadastrarEquipe}
+          nomeDasEquipes={equipes.map((equipe) => equipe.nome)}
+          aoMembroCadastrado={(membro) => aoNovoMembroAdd(membro)}
+        />
+      )}
+
+      <Titulo esconderForm={esconderForm}
+        titulo="Exibir/Esconder formulario" />
+
       {equipes.map((equipe) => (
         <Equipe
           aoFavoritar={favoritoOuNao}
