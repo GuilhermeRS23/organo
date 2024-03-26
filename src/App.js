@@ -71,12 +71,22 @@ const App = () => {
 
   //USANDO LOCALSTORE PARA MANTER OS DADOS
 
-  const [membros, setMembros] = useState(
-    JSON.parse(localStorage.getItem('listaEquipes')) || []);
+  // const [membros, setMembros] = useState(
+  //   JSON.parse(localStorage.getItem('listaEquipes')) || []);
+
+  // useEffect(() => {
+  //   localStorage.setItem('listaEquipes', JSON.stringify(membros));
+  // }, [membros]);
+
+  const [membros, setMembros] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem('listaEquipes', JSON.stringify(membros));
-  }, [membros]);
+    fetch('http://localhost:8080/listaEquipes')
+      .then(resposta => resposta.json())
+      .then(dados => {
+        setMembros(dados)
+      })
+  }, [])
 
   const aoNovoMembroAdd = (membro) => {
     setMembros([...membros, membro])
