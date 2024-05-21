@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import Banner from "./components/Banner";
+import Banner from './components/Banner'
 import Formulario from "./components/Formulario";
 import Equipe from "./components/Equipe";
 import Rodape from "./components/Rodape";
@@ -112,7 +112,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner endercoImagem="\imgs\banner.png" altTexto="Banner da tela Principal"/>
 
       {exibirFormulario && (
         <Formulario
