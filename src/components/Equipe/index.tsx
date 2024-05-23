@@ -20,7 +20,7 @@ const Equipe = ({ id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavorit
     //CONDIÇÃO EM JSX  
     //condição ? valor1 : valor2 
     //condição && valor1 
-    (membros.length > 0) &&
+    (membros.length > 0) ?
     <section className="equipe" style={cssBackground}>
       <input value={corPrimaria} type="color" className="input-color"
         onChange={evento => {
@@ -49,7 +49,7 @@ const Equipe = ({ id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavorit
         })}
 
       </div>
-    </section>
+    </section> : <></>
   )
 };
 
