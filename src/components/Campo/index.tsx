@@ -6,18 +6,12 @@ interface CampoProps {
     label: string
     valor: string
     tipo: string
-    obrigatorio: boolean
+    obrigatorio?: boolean
 }
 
 //USANDO OBJETO COMO PARAMETRO
 const Campo = (
-    { label,
-        valor,
-        tipo,
-        obrigatorio,
-        placeholder,
-        aoAlterado }: CampoProps) => {
-
+    { label, valor, tipo, placeholder, aoAlterado, obrigatorio = false }: CampoProps) => {
     // const [valor, setValor] = useState("");
 
     const aoDigitado = (evento: React.ChangeEvent<HTMLInputElement>) => {

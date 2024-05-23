@@ -11,7 +11,7 @@ interface MembroProps {
   nome: string
   posicao: string
   foto: string
-  favorito: string
+  favorito: boolean
   aoFavoritar: (id: string) => void
   aoDeletar: (id: string) => void
   corDeFundo: string

@@ -1,16 +1,15 @@
-import React from "react";
 import { ReactElement } from "react";
 import "./Botao.css"
 
 interface BotaoProps{
-    children: ReactElement
+    children: ReactElement | string
 }
 
 //USANDO PROPS NOMALMENTE
-const Botao = (props: BotaoProps) => {
+const Botao = ({ children }: BotaoProps) => {
     return (
         <button className="botao">
-            {props.children}
+            {children}
         </button>
     )
 }

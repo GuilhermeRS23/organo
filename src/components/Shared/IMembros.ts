@@ -3,5 +3,6 @@ export interface IMembro{
         nome: string,
         posicao: string,
         foto: string,
-        favorito: string
+        favorito: boolean
+        equipe?: string
 }
