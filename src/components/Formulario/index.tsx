@@ -4,15 +4,17 @@ import Botao from '../Botao';
 import Campo from '../Campo';
 import ListaSuspensa from '../ListaSuspensa';
 import "./Formulario.css"
-import { IMembro } from '../Shared/IMembros';
+import { IMembro } from '../../shared/types/IMembros';
+import { IEquipe } from '../../shared/types/IEquipe';
+
 
 interface FormularioProps {
     aoMembroCadastrado: (membro: IMembro) => void
     nomeDasEquipes: string[]
-    //cadastrarEquipe: (nome: string, corPrimaria: string) => void
+    cadastrarEquipe: (equipe: IEquipe) => void
 }
 
-const Formulario = ({ aoMembroCadastrado, nomeDasEquipes }: FormularioProps) => {
+const Formulario = ({ aoMembroCadastrado, nomeDasEquipes, cadastrarEquipe }: FormularioProps) => {
 
     const posicaoNaEquipe = [
         'Piloto N° 1',
@@ -76,7 +78,7 @@ const Formulario = ({ aoMembroCadastrado, nomeDasEquipes }: FormularioProps) => 
                 <Botao>Criar Card</Botao>
             </form>
 
-            {/* <form className='formulario_addEquipe' onSubmit={(evento) => {
+            <form className='formulario_addEquipe' onSubmit={(evento) => {
                 evento.preventDefault()
                 cadastrarEquipe({ nome: novaEquipe, corPrimaria: novaEquipeCor })
             }}>
@@ -98,7 +100,7 @@ const Formulario = ({ aoMembroCadastrado, nomeDasEquipes }: FormularioProps) => 
                 />
 
                 <Botao>Adicionar Equipe</Botao>
-            </form> */}
+            </form>
         </section>
     )
 }

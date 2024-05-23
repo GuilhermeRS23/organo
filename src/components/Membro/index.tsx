@@ -4,7 +4,6 @@ import { TbHeartPlus, TbHeartFilled } from "react-icons/tb"; //não favorito & f
 import { GiFullMotorcycleHelmet } from "react-icons/gi"; ///Piloto
 import { GrUserManager } from "react-icons/gr";  ///Chefe
 import "./Membro.css";
-import { IMembro } from "../Shared/IMembros";
 
 interface MembroProps {
   id: string

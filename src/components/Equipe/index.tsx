@@ -1,5 +1,5 @@
 import Membro from "../Membro";
-import { IMembro } from "../Shared/IMembros";
+import { IMembro } from "../../shared/types/IMembros";
 import "./Equipe.css";
 import hexToRgba from 'hex-to-rgba';
 
@@ -8,12 +8,13 @@ interface EquipeProps {
   corPrimaria: string
   nome: string
   membros: IMembro[]
-  aoDeletar: () => void
+  aoDeletar: (id:string) => void
   mudarCor: (valor: string, id: string) => void
-  aoFavoritar: () => void
+  aoFavoritar: (id: string) => void
+  corFundo: string
 }
 
-const Equipe = ({ id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavoritar }: EquipeProps) => {
+const Equipe = ({ id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavoritar, corFundo }: EquipeProps) => {
   const cssBackground = { backgroundColor: hexToRgba(corPrimaria, '0.45'), borderColor: corPrimaria };
   return (
     //CONDIÇÃO EM JSX  
