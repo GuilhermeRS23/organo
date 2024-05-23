@@ -1,11 +1,20 @@
-//import { useState } from "react"
 import "./Campo.css"
-//USANDO OBJETO COMO PARAMETRO
-const Campo = ({label, valor, tipo, obrigatorio, placeholder, aoAlterado}) => {
 
+interface CampoProps {
+    aoAlterado: (valor: string) => void
+    placeholder: string
+    label: string
+    valor: string
+    tipo: string
+    obrigatorio?: boolean
+}
+
+//USANDO OBJETO COMO PARAMETRO
+const Campo = (
+    { label, valor, tipo, placeholder, aoAlterado, obrigatorio = false }: CampoProps) => {
     // const [valor, setValor] = useState("");
 
-    const aoDigitado = (evento) => {
+    const aoDigitado = (evento: React.ChangeEvent<HTMLInputElement>) => {
         aoAlterado(evento.target.value);
         // setValor(evento.target.value)
         // console.log(valor)

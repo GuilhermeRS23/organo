@@ -5,11 +5,21 @@ import { GiFullMotorcycleHelmet } from "react-icons/gi"; ///Piloto
 import { GrUserManager } from "react-icons/gr";  ///Chefe
 import "./Membro.css";
 
-//USANDO PROPS COM OBJETO
-const Membro = (props) => {
+interface MembroProps {
+  id: string
+  nome: string
+  posicao: string
+  foto: string
+  favorito: boolean
+  aoFavoritar: (id: string) => void
+  aoDeletar: (id: string) => void
+  corDeFundo: string
+}
+
+const Membro = ({ aoFavoritar, aoDeletar, corDeFundo, id, nome, posicao, foto, favorito }: MembroProps) => {
 
   function favoritar() {
-    props.aoFavoritar(props.id)
+    aoFavoritar(id)
   }
 
   return (
@@ -17,21 +27,21 @@ const Membro = (props) => {
       <AiTwotoneCloseCircle
         size={20}
         className="excluir-membro"
-        onClick={() => props.aoDeletar(props.id)}
+        onClick={() => aoDeletar(id)}
       />
 
-      <div className="cabecalho" style={{ backgroundColor: props.corDeFundo }}>
-        <img src={props.foto} alt={props.nome} />
+      <div className="cabecalho" style={{ backgroundColor: corDeFundo }}>
+        <img src={foto} alt={nome} />
       </div>
 
       <div className="rodape">
-        <h4>{props.nome}</h4>
-        {props.posicao != "Chefe de Equipe" ?
-          <h5><GiFullMotorcycleHelmet size={20} />{props.posicao}</h5> :
-          <h5><GrUserManager size={20} />{props.posicao}</h5>
+        <h4>{nome}</h4>
+        {posicao != "Chefe de Equipe" ?
+          <h5><GiFullMotorcycleHelmet size={20} />{posicao}</h5> :
+          <h5><GrUserManager size={20} />{posicao}</h5>
         }
         <div className="favoritar">
-          {props.favorito ?
+          {favorito ?
             <TbHeartFilled size={20} onClick={favoritar} /> :
             <TbHeartPlus size={20} onClick={favoritar} />}
         </div>

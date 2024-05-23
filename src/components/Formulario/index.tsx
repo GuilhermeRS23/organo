@@ -4,8 +4,17 @@ import Botao from '../Botao';
 import Campo from '../Campo';
 import ListaSuspensa from '../ListaSuspensa';
 import "./Formulario.css"
+import { IMembro } from '../../shared/types/IMembros';
+import { IEquipe } from '../../shared/types/IEquipe';
 
-const Formulario = (props) => {
+
+interface FormularioProps {
+    aoMembroCadastrado: (membro: IMembro) => void
+    nomeDasEquipes: string[]
+    cadastrarEquipe: (equipe: IEquipe) => void
+}
+
+const Formulario = ({ aoMembroCadastrado, nomeDasEquipes, cadastrarEquipe }: FormularioProps) => {
 
     const posicaoNaEquipe = [
         'Piloto N° 1',
@@ -22,9 +31,9 @@ const Formulario = (props) => {
     const [novaEquipeCor, setNovaEquipeCor] = useState("");
 
 
-    function aoSalvar(event) {
+    function aoSalvar(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        props.aoMembroCadastrado({ nome, posicao, foto, equipe, id: uuidv4(), favorito:false });
+        aoMembroCadastrado({ nome, posicao, foto, equipe, id: uuidv4(), favorito: false });
 
         setNome('');
         setPosicao('');
@@ -61,7 +70,7 @@ const Formulario = (props) => {
 
                 <ListaSuspensa
                     obrigatorio={true} label='Equipe'
-                    itens={props.nomeDasEquipes}
+                    itens={nomeDasEquipes}
                     valor={equipe}
                     aoAlterado={valor => setEquipe(valor)}
                 />
@@ -71,7 +80,7 @@ const Formulario = (props) => {
 
             <form className='formulario_addEquipe' onSubmit={(evento) => {
                 evento.preventDefault()
-                props.cadastrarEquipe({ nome: novaEquipe, corPrimaria: novaEquipeCor })
+                cadastrarEquipe({ nome: novaEquipe, corPrimaria: novaEquipeCor })
             }}>
                 <h2>Preencha os dados para adicionar uma nova equipe:</h2>
                 <Campo
@@ -93,7 +102,7 @@ const Formulario = (props) => {
                 <Botao>Adicionar Equipe</Botao>
             </form>
         </section>
-        )
+    )
 }
 
 export default Formulario;

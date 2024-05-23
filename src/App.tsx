@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
-import Banner from "./components/Banner";
+import Banner from './components/Banner'
 import Formulario from "./components/Formulario";
 import Equipe from "./components/Equipe";
 import Rodape from "./components/Rodape";
 import Titulo from "./components/Titulo";
+import { IMembro } from "./shared/types/IMembros";
+import { IEquipe } from "./shared/types/IEquipe";
 
 const App = () => {
+
 
   const [equipes, setEquipes] = useState([
     { id: uuidv4(), nome: "Mercedes", corPrimaria: "#27f4d2" },
@@ -71,22 +74,23 @@ const App = () => {
 
   //USANDO LOCALSTORE PARA MANTER OS DADOS
 
-  const [membros, setMembros] = useState(
-    JSON.parse(localStorage.getItem('listaEquipes')) || []);
+  const [membros, setMembros] = useState<IMembro[]>(
+    JSON.parse(localStorage.getItem('listaEquipes') ?? '[]'));
 
   useEffect(() => {
     localStorage.setItem('listaEquipes', JSON.stringify(membros));
   }, [membros]);
 
-  const aoNovoMembroAdd = (membro) => {
+  const aoNovoMembroAdd = (membro: IMembro) => {
+    // setMembros((membros) => [...membros, membro]) Para sempre pegar estado mais atual
     setMembros([...membros, membro])
   };
 
-  const deletarMembro = (id) => {
+  const deletarMembro = (id: string) => {
     setMembros(membros.filter(equipe => equipe.id !== id));
   }
 
-  const mudarCorEquipe = (cor, id) => {
+  const mudarCorEquipe = (cor: string, id: string) => {
     setEquipes(equipes.map(equipe => {
       if (equipe.id === id) {
         equipe.corPrimaria = cor;
@@ -95,7 +99,7 @@ const App = () => {
     }));
   }
 
-  const cadastrarEquipe = (novaEquipe) => {
+  const cadastrarEquipe = (novaEquipe: IEquipe) => {
     setEquipes([...equipes, { ...novaEquipe, id: uuidv4() }])
   };
 
@@ -103,7 +107,7 @@ const App = () => {
     setExibirFormulario((prevState) => prevState ? false : true);
   }
 
-  const favoritoOuNao = (id) => {
+  const favoritoOuNao = (id: string) => {
     setMembros(membros.map(membro => {
       if (membro.id === id) membro.favorito = !membro.favorito;
       return membro
@@ -112,7 +116,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner endercoImagem="\imgs\banner.png" altTexto="Banner da tela Principal"/>
 
       {exibirFormulario && (
         <Formulario
