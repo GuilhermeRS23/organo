@@ -1,8 +1,19 @@
 import Membro from "../Membro";
+import { IMembro } from "../Shared/IMembros";
 import "./Equipe.css";
 import hexToRgba from 'hex-to-rgba';
 
-const Equipe = ({id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavoritar }) => {
+interface EquipeProps {
+  id: string
+  corPrimaria: string
+  nome: string
+  membros: IMembro[]
+  aoDeletar: () => void
+  mudarCor: (valor: string, id: string) => void
+  aoFavoritar: () => void
+}
+
+const Equipe = ({ id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavoritar }: EquipeProps) => {
   const cssBackground = { backgroundColor: hexToRgba(corPrimaria, '0.45'), borderColor: corPrimaria };
   return (
     //CONDIÇÃO EM JSX  
@@ -20,17 +31,20 @@ const Equipe = ({id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavorita
       <div className="membros">
         {membros.map(membro => {
 
-          return <Membro
-            nome={membro.nome}
-            corDeFundo={corPrimaria}
-            id={membro.id}
-            key={membro.nome}
-            posicao={membro.posicao}
-            foto={membro.foto}
-            aoDeletar={aoDeletar}
-            favorito={membro.favorito}
-            aoFavoritar={aoFavoritar}
-          />
+          return (
+            <Membro
+              nome={membro.nome}
+              corDeFundo={corPrimaria}
+              id={membro.id}
+              key={membro.nome}
+              posicao={membro.posicao}
+              foto={membro.foto}
+              aoDeletar={aoDeletar}
+              favorito={membro.favorito}
+              aoFavoritar={aoFavoritar}
+            />
+          )
+
         })}
 
       </div>
