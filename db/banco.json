@@ -1,67 +1,76 @@
 {
- "listaEquipes" : [
-        {
-            "nome": "Charles Leclerc",
-            "posicao": "Piloto N° 1",
-            "foto": "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1024.medium.jpg/1708344558637.jpg",
-            "equipe": "Ferrari",
-            "id": "6c0c36f7-7428-42be-b541-a60866951d4a"
-        },
+    "listaEquipes": [
         {
             "nome": "Lewis Hamilton",
             "posicao": "Piloto N° 1",
             "foto": "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/hamilton.jpg.img.1024.medium.jpg/1708362076344.jpg",
             "equipe": "Mercedes",
-            "id": "4aeaef2a-cc73-428d-b482-873bc605c803"
+            "id": "4aeaef2a-cc73-428d-b482-873bc605c803",
+            "favorito": false,
+            "data":"2000-04-30"
         },
         {
             "nome": "Max Verstappen",
             "posicao": "Piloto N° 1",
             "foto": "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/verstappen.jpg.img.1024.medium.jpg/1708344264039.jpg",
             "equipe": "Red Bull Racing",
-            "id": "ca4d3baf-d8b2-4d73-b16a-8cecf7a346f2"
+            "id": "ca4d3baf-d8b2-4d73-b16a-8cecf7a346f2",
+            "favorito": false,
+            "data":"2000-04-30"
         },
         {
             "nome": "Sergio Perez",
             "posicao": "Piloto N° 2",
             "foto": "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/perez.jpg.img.1024.medium.jpg/1708344497222.jpg",
             "equipe": "Red Bull Racing",
-            "id": "baafb0ee-3889-4a10-93b4-ceb93727f912"
+            "id": "baafb0ee-3889-4a10-93b4-ceb93727f912",
+            "favorito": false,
+            "data":"2000-04-30"
         },
         {
             "nome": "Liam Lawson",
             "posicao": "Piloto Reserva",
             "foto": "https://res.cloudinary.com/prod-f2f3/image/upload/v1647009946/f2/global/drivers/2022/05_Lawson.jpg",
             "equipe": "Red Bull Racing",
-            "id": "af674e72-79c5-48ff-b0c9-d146863f90db"
+            "id": "af674e72-79c5-48ff-b0c9-d146863f90db",
+            "favorito": false,
+            "data":"2000-04-30"
         },
         {
             "nome": "Christian Horner",
             "posicao": "Chefe de Equipe",
             "foto": "https://i2-prod.liverpoolecho.co.uk/sport/uk-sport-news/article28575480.ece/ALTERNATES/s615/0_red-bull-team-principal-christian-horner-is-under-investigation-tim-goodepa.jpg",
             "equipe": "Red Bull Racing",
-            "id": "ddc4347a-c45d-42e9-aa69-eb1c0eaab5a2"
+            "id": "ddc4347a-c45d-42e9-aa69-eb1c0eaab5a2",
+            "favorito": false,
+            "data":"2000-04-30"
         },
         {
             "nome": "Alexander Albon",
             "posicao": "Piloto N° 1",
             "foto": "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/albon.jpg.img.1536.medium.jpg/1708362042590.jpg",
             "equipe": "William",
-            "id": "0d30e261-daba-4964-a8ae-52bc2fc7c759"
+            "id": "0d30e261-daba-4964-a8ae-52bc2fc7c759",
+            "favorito": false,
+            "data":"2000-04-30"
         },
         {
             "nome": "Fernando Alonso",
             "posicao": "Piloto N° 1",
             "foto": "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/alonso.jpg.img.1536.medium.jpg/1708344615576.jpg",
             "equipe": "Aston Martin",
-            "id": "0bc43fa9-d7c8-4cc9-af0f-b6032d56b68d"
+            "id": "0bc43fa9-d7c8-4cc9-af0f-b6032d56b68d",
+            "favorito": false,
+            "data":"2000-04-30"
         },
         {
             "nome": "George Russell",
             "posicao": "Piloto N° 2",
             "foto": "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/russell.jpg.img.1536.medium.jpg/1708362100444.jpg",
             "equipe": "Mercedes",
-            "id": "607529ec-0749-4eed-8955-b450bae3483b"
+            "id": "607529ec-0749-4eed-8955-b450bae3483b",
+            "favorito": false,
+            "data":"2000-04-30"
         }
     ]
 }

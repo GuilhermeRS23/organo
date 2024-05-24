@@ -26,52 +26,6 @@ const App = () => {
 
   const [exibirFormulario, setExibirFormulario] = useState(true);
 
-  // const MembrosEquipes = [
-  //   {
-  //     id: uuidv4(),
-  //     nome: "Charles Leclerc",
-  //     posicao: "Piloto N° 1",
-  //     foto: "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/leclerc.jpg.img.1024.medium.jpg/1708344558637.jpg",
-  //     equipe: "Ferrari"
-  //   },
-  //   {
-  //     id: uuidv4(),
-  //     nome: "Lewis Hamilton",
-  //     osicao:"Piloto N° 1",
-  //     foto: "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/hamilton.jpg.img.1024.medium.jpg/1708362076344.jpg",
-  //     equipe: "Mercedes"
-  //   },
-  //   {
-  //     id: uuidv4(),
-  //     nome: "Max Verstappen",
-  //     posicao: "Piloto N° 1",
-  //     foto: "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/verstappen.jpg.img.1024.medium.jpg/1708344264039.jpg",
-  //     equipe: "Red Bull Racing"
-  //   },
-  //   {
-  //     id: uuidv4(),
-  //     nome: "Sergio Perez",
-  //     posicao: "Piloto N° 2",
-  //     foto: "https://media.formula1.com/content/dam/fom-website/drivers/2024Drivers/perez.jpg.img.1024.medium.jpg/1708344497222.jpg",
-  //     equipe: "Red Bull Racing"
-  //   },
-  //   {
-  //     id: uuidv4(),
-  //     nome: "Liam Lawson",
-  //     posicao: "Piloto Reserva",
-  //     foto: "https://res.cloudinary.com/prod-f2f3/image/upload/v1647009946/f2/global/drivers/2022/05_Lawson.jpg",
-  //     equipe: "Red Bull Racing"
-  //   },
-  //   {
-  //     id: uuidv4(),
-  //     nome: "Christian Horner",
-  //     posicao: "Chefe de Equipe",
-  //     foto: "https://i2-prod.liverpoolecho.co.uk/sport/uk-sport-news/article28575480.ece/ALTERNATES/s615/0_red-bull-team-principal-christian-horner-is-under-investigation-tim-goodepa.jpg",
-  //     equipe: "Red Bull Racing"
-  //   }
-  // ]
-  // const [membros, setMembros] = useState(MembrosEquipes);
-
   //USANDO LOCALSTORE PARA MANTER OS DADOS
 
   const [membros, setMembros] = useState<IMembro[]>(
@@ -134,7 +88,7 @@ const App = () => {
           aoFavoritar={favoritoOuNao}
           mudarCor={mudarCorEquipe}
           id={equipe.id}
-          key={equipe.nome}
+          key={equipe.id}
           nome={equipe.nome}
           corFundo={equipe.corPrimaria}
           corPrimaria={equipe.corPrimaria}

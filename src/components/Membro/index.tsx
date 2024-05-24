@@ -14,9 +14,12 @@ interface MembroProps {
   aoFavoritar: (id: string) => void
   aoDeletar: (id: string) => void
   corDeFundo: string
+  data: string
 }
 
-const Membro = ({ aoFavoritar, aoDeletar, corDeFundo, id, nome, posicao, foto, favorito }: MembroProps) => {
+const Membro = ({ aoFavoritar, aoDeletar, corDeFundo, id, nome, posicao, foto, favorito, data }: MembroProps) => {
+  const dataLocal = new Date(`${data}T12:00:00Z`);
+  const dataFormatada = new Date(dataLocal).toLocaleDateString();
 
   function favoritar() {
     aoFavoritar(id)
@@ -40,6 +43,7 @@ const Membro = ({ aoFavoritar, aoDeletar, corDeFundo, id, nome, posicao, foto, f
           <h5><GiFullMotorcycleHelmet size={20} />{posicao}</h5> :
           <h5><GrUserManager size={20} />{posicao}</h5>
         }
+        <h5>{dataFormatada}</h5>
         <div className="favoritar">
           {favorito ?
             <TbHeartFilled size={20} onClick={favoritar} /> :

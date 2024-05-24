@@ -43,6 +43,7 @@ const Equipe = ({ id, corPrimaria, membros, nome, aoDeletar, mudarCor, aoFavorit
               aoDeletar={aoDeletar}
               favorito={membro.favorito}
               aoFavoritar={aoFavoritar}
+              data={membro.data}
             />
           )
 

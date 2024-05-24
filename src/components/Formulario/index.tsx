@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { IMembro } from '../../shared/types/IMembros';
+import { IEquipe } from '../../shared/types/IEquipe';
 import Botao from '../Botao';
 import Campo from '../Campo';
 import ListaSuspensa from '../ListaSuspensa';
 import "./Formulario.css"
-import { IMembro } from '../../shared/types/IMembros';
-import { IEquipe } from '../../shared/types/IEquipe';
-
 
 interface FormularioProps {
     aoMembroCadastrado: (membro: IMembro) => void
@@ -29,16 +28,18 @@ const Formulario = ({ aoMembroCadastrado, nomeDasEquipes, cadastrarEquipe }: For
     const [equipe, setEquipe] = useState("");
     const [novaEquipe, setNovaEquipe] = useState("");
     const [novaEquipeCor, setNovaEquipeCor] = useState("");
+    const [data, setData] = useState("");
 
 
     function aoSalvar(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        aoMembroCadastrado({ nome, posicao, foto, equipe, id: uuidv4(), favorito: false });
+        aoMembroCadastrado({ nome, posicao, foto, equipe, data, id: uuidv4(), favorito: false });
 
         setNome('');
         setPosicao('');
         setFoto('');
         setEquipe('');
+        setData('');
     }
 
     return (
@@ -66,6 +67,13 @@ const Formulario = ({ aoMembroCadastrado, nomeDasEquipes, cadastrarEquipe }: For
                     placeholder="Informe o endereço da imagem..."
                     valor={foto}
                     aoAlterado={setFoto}
+                />
+
+                <Campo
+                    tipo='date' label='Data de Nascimento'
+                    placeholder=""
+                    valor={data}
+                    aoAlterado={setData}
                 />
 
                 <ListaSuspensa

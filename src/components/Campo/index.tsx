@@ -5,13 +5,13 @@ interface CampoProps {
     placeholder: string
     label: string
     valor: string
-    tipo: string
+    tipo?: "text" | "date" | "number" | "email" | "link" | "color"
     obrigatorio?: boolean
 }
 
 //USANDO OBJETO COMO PARAMETRO
 const Campo = (
-    { label, valor, tipo, placeholder, aoAlterado, obrigatorio = false }: CampoProps) => {
+    { label, valor, placeholder, aoAlterado, obrigatorio = false, tipo="text" }: CampoProps) => {
     // const [valor, setValor] = useState("");
 
     const aoDigitado = (evento: React.ChangeEvent<HTMLInputElement>) => {
